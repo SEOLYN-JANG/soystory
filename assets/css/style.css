@@ -98,23 +98,23 @@ body[data-page="home"] .site-head.is-stuck,body[data-page="home"] .site-head.nav
 .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:right bottom}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(250,248,238,.88) 0%,rgba(250,248,238,.62) 26%,rgba(250,248,238,0) 47%);pointer-events:none}
 .hero-copy{position:absolute;inset:0;z-index:1;display:flex;align-items:center;padding-top:76px}
-.hero-copy .wrap>div{max-width:min(38vw,520px)}
-.hero-copy h1.display{font-size:clamp(36px,3.5vw,58px)}
+/* 글 칸 너비는 "병이 시작되는 자리"까지만: 사진은 오른쪽 아래 기준으로 화면을 덮으므로 병 왼쪽 끝 = 화면폭 - 0.855×화면높이(가로로 긴 화면은 0.5175×화면폭) */
+.hero{--pad:max(24px,calc((100vw - var(--wrap))/2 + 24px));--avail:calc(min(100vw - 85.5vh,51.75vw) - var(--pad) - 36px)}
+.hero-copy .wrap>div{max-width:min(520px,var(--avail))}
+.hero-copy h1.display{font-size:clamp(28px,min(3.6vw,calc(var(--avail)/9.7)),58px)}
 .hero-copy .kicker{font-weight:700;color:var(--forest-2);font-size:16px;margin-bottom:14px}
-.hero-copy .lead{margin-top:18px}
+.hero-copy .lead{margin-top:18px;font-size:clamp(15px,calc(var(--avail)/26),19px)}
 .hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
 .hero-when{margin-top:18px;font-size:14.5px;color:var(--forest-2);font-weight:500}
-@media (min-width:701px) and (max-width:1100px) and (orientation:landscape){
-  .hero-copy .wrap>div{max-width:330px}
-  .hero-copy h1.display{font-size:33px}
-  .hero-copy .lead{font-size:16px}
-}
-@media (max-width:1100px) and (orientation:portrait),(max-width:700px){
-  .hero{min-height:780px}
+/* 세로로 길거나 정사각형에 가까운 화면: 위에 글, 아래에 제품 */
+@media (max-aspect-ratio:13/10),(max-width:700px){
+  .hero{min-height:max(100svh,calc(100vw + 430px))}
   .hero-photo img{object-position:center bottom}
   .hero::after{background:linear-gradient(180deg,rgba(250,248,238,.86) 0%,rgba(250,248,238,.6) 36%,rgba(250,248,238,0) 52%)}
   .hero-copy{align-items:flex-start;padding-top:100px}
   .hero-copy .wrap>div{max-width:560px}
+  .hero-copy h1.display{font-size:clamp(32px,7vw,48px)}
+  .hero-copy .lead{font-size:17px}
   .hero-actions .btn{flex:1 1 0;padding:0 12px}
 }
 
