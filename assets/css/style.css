@@ -761,3 +761,33 @@ a.contact-card:hover{border-color:var(--forest);background:#fff}
 .spec dd,.clean-dl dd,.clean-rows .v,.foot-info dd,.label-legal{text-wrap:balance}
 .c{display:inline-block;text-wrap:balance;vertical-align:top}
 .clean-label p{max-width:17em}
+
+/* 헤더 로고 키움 (바 높이도 함께) */
+.head-in{height:100px}
+.brand img{height:72px}
+.nav-item>a{height:100px}
+.hero-copy{padding-top:100px}
+@media (max-width:900px){
+  .head-in{height:78px}
+  .brand img{height:52px}
+  .nav-item>a{height:auto}
+  .nav{max-height:calc(100vh - 78px)}
+}
+@media (max-aspect-ratio:13/10),(max-width:700px){.hero-copy{padding-top:114px}}
+
+/* 종균 띠: 특징 3칸과 버튼 가운데 정렬 */
+.goals li,.goals li+li{padding:22px 14px;text-align:center}
+.goals .icon{display:block;margin:0 auto 10px}
+.band .goals+.btn{display:flex;width:max-content;margin-inline:auto}
+.band .goals+.note{text-align:center}
+@media (max-width:600px){
+  .goals li,.goals li+li{display:block;padding:18px 0}
+  .goals .icon{margin:0 auto 8px}
+}
+
+/* 구매처: 제목·로고·이름·날짜 가운데 정렬 (사진 칸 높이도 다른 칸과 맞춤) */
+.channels-head{display:block;text-align:center;margin-bottom:30px}
+.channels-head .note{margin-top:10px}
+.ch-img{justify-items:center;position:relative;overflow:hidden}
+.ch-img.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ch-body{text-align:center}
